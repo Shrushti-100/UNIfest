@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events — UNIfest</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="frame">
+
+  <nav class="nav">
+    <div class="nav-row">
+      <div class="logo">UNI<span>fest</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="events.html" class="active">EVENTS</a></li>
+        <li><a href="#clubs">CLUBS</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#login" class="btn btn-ghost">Login</a>
+        <a href="#signup" class="btn btn-solid">Sign up</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">every event, one place.</div>
+      <h1>explore<span class="accent"> upcoming events</span></h1>
+      <p>Browse fests, workshops, matches and meetups happening across campus — filter by category and register in a couple of taps.</p>
+    </div>
+  </section>
+
+  <div class="filters">
+    <div class="chip-row" id="chipRow">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="fest">Fests</button>
+      <button class="chip" data-filter="tech">Tech</button>
+      <button class="chip" data-filter="sports">Sports</button>
+      <button class="chip" data-filter="culture">Culture</button>
+      <button class="chip" data-filter="workshop">Workshops</button>
+    </div>
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="text" id="searchInput" placeholder="Search events…">
+    </div>
+  </div>
+
+  <section class="event-grid" id="eventGrid">
+
+    <a class="event-card" data-category="fest" href="event-detail.html?e=spectra" style="text-decoration:none;">
+      <div class="event-media" style="background:linear-gradient(135deg,#3a2a63,#8b3a86);">
+        <div class="event-date"><span class="num">18</span><span class="mon">Oct</span></div>
+        <span class="event-tag">Flagship fest</span>
+      </div>
+      <div class="event-body">
+        <h3>Spectra — Annual Cultural Fest</h3>
+        <p class="event-meta">
+          <span>6:00 PM · Main Amphitheatre</span>
+          <span>3-day fest · Music, dance &amp; drama</span>
+        </p>
+        <div class="event-foot">
+          <span class="event-host">Hosted by Cultural Council</span>
+          <span class="event-btn">Register</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="event-card" data-category="tech" href="event-detail.html?e=hacknight" style="text-decoration:none;">
+      <div class="event-media" style="background:linear-gradient(135deg,#1e2a52,#5b3aa8);">
+        <div class="event-date"><span class="num">24</span><span class="mon">Oct</span></div>
+        <span class="event-tag">Tech</span>
+      </div>
+      <div class="event-body">
+        <h3>HackNight 2026</h3>
+        <p class="event-meta">
+          <span>9:00 PM · CS Block Labs</span>
+          <span>12-hour overnight build sprint</span>
+        </p>
+        <div class="event-foot">
+          <span class="event-host">Hosted by Dev Society</span>
+          <span class="event-btn">Register</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="event-card" data-category="sports" href="event-detail.html?e=sprintcup" style="text-decoration:none;">
+      <div class="event-media" style="background:linear-gradient(135deg,#402060,#c23fb0);">
+        <div class="event-date"><span class="num">29</span><span class="mon">Oct</span></div>
+        <span class="event-tag">Sports</span>
+      </div>
+      <div class="event-body">
+        <h3>Inter-Dept Sprint Cup</h3>
+        <p class="event-meta">
+          <span>7:00 AM · University Track</span>
+          <span>Athletics meet · all departments</span>
+        </p>
+        <div class="event-foot">
+          <span class="event-host">Hosted by Sports Committee</span>
+          <span class="event-btn">Register</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="event-card" data-category="culture" href="event-detail.html?e=openmic" style="text-decoration:none;">
+      <div class="event-media" style="background:linear-gradient(135deg,#2a1e45,#ee5fb0);">
+        <div class="event-date"><span class="num">2</span><span class="mon">Nov</span></div>
+        <span class="event-tag">Culture</span>
+      </div>
+      <div class="event-body">
+        <h3>Open Mic Night</h3>
+        <p class="event-meta">
+          <span>7:30 PM · Courtyard Stage</span>
+          <span>Poetry, music &amp; stand-up</span>
+        </p>
+        <div class="event-foot">
+          <span class="event-host">Hosted by Literary Club</span>
+          <span class="event-btn">Register</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="event-card" data-category="workshop" href="event-detail.html?e=designsprint" style="text-decoration:none;">
+      <div class="event-media" style="background:linear-gradient(135deg,#1e3350,#8b5cf6);">
+        <div class="event-date"><span class="num">6</span><span class="mon">Nov</span></div>
+        <span class="event-tag">Workshop</span>
+      </div>
+      <div class="event-body">
+        <h3>UI/UX Design Sprint</h3>
+        <p class="event-meta">
+          <span>10:00 AM · Design Studio</span>
+          <span>Hands-on, beginner friendly</span>
+        </p>
+        <div class="event-foot">
+          <span class="event-host">Hosted by Design Guild</span>
+          <span class="event-btn">Register</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="event-card" data-category="fest" href="event-detail.html?e=foodtruck" style="text-decoration:none;">
+      <div class="event-media" style="background:linear-gradient(135deg,#3a2a63,#ff9650);">
+        <div class="event-date"><span class="num">12</span><span class="mon">Nov</span></div>
+        <span class="event-tag">Fest</span>
+      </div>
+      <div class="event-body">
+        <h3>Food Truck Friday</h3>
+        <p class="event-meta">
+          <span>5:00 PM · North Lawn</span>
+          <span>Campus-wide food festival</span>
+        </p>
+        <div class="event-foot">
+          <span class="event-host">Hosted by Student Council</span>
+          <span class="event-btn">Register</span>
+        </div>
+      </div>
+    </a>
+
+  </section>
+
+  <div class="load-more-row">
+    <button class="load-more" id="loadMoreBtn">Load more events</button>
+  </div>
+
+  <footer>
+    &copy; 2026 UNIfest — built by students, for students.
+  </footer>
+
+</div>
+
+<script>
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('.event-card');
+  const search = document.getElementById('searchInput');
+
+  function applyFilters(){
+    const active = document.querySelector('.chip.active').dataset.filter;
+    const term = search.value.trim().toLowerCase();
+    cards.forEach(card => {
+      const matchesCategory = active === 'all' || card.dataset.category === active;
+      const matchesSearch = card.innerText.toLowerCase().includes(term);
+      card.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
+    });
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      applyFilters();
+    });
+  });
+
+  search.addEventListener('input', applyFilters);
+
+  document.getElementById('loadMoreBtn').addEventListener('click', function(){
+    this.textContent = 'No more events for now';
+    this.disabled = true;
+  });
+</script>
+
+</body>
+</html>
