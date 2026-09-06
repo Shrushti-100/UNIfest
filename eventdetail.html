@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event details — UNIfest</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .detail-wrap{
+    max-width: 1180px;
+    margin: 0 auto 60px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 28px;
+  }
+  .detail-media{
+    border-radius: var(--radius-lg);
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+  .detail-media .event-date{ transform: scale(1.15); top: 18px; left: 18px; }
+  .detail-media .event-tag{ top: 18px; right: 18px; }
+  .detail-body h1{
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    color: var(--indigo-950); 
+    margin: 0 0 6px;
+  }
+  .detail-host{
+    color: var(--magenta);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+  .detail-facts{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .detail-fact{
+    display: flex;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--indigo-900);
+  }
+  .detail-fact b{ min-width: 84px; display: inline-block; color: var(--indigo-700); font-weight: 600; }
+  .detail-desc{
+    color: #443a63;
+    line-height: 1.65;
+    margin-bottom: 26px;
+  }
+  .detail-card{
+    background: var(--indigo-950);
+    border-radius: var(--radius-lg);
+    padding: 26px;
+    color: #ece5fa;
+    height: fit-content;
+    position: sticky;
+    top: 24px;
+  }
+  .detail-card h3{
+    font-family: var(--font-display);
+    color: #fff;
+    margin: 0 0 14px;
+    font-size: 1.1rem;
+  }
+  .detail-card .price{
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .detail-card .seats{
+    font-size: 0.8rem;
+    color: #b9aede;
+    margin-bottom: 20px;
+  }
+  .detail-register{
+    width: 100%;
+    background: linear-gradient(90deg, var(--pink), var(--violet));
+    color: #fff;
+    border: none;
+    padding: 13px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+  .detail-register:hover{ filter: brightness(1.08); }
+  .detail-share{
+    width: 100%;
+    background: var(--card-navy);
+    color: #fff;
+    border: none;
+    padding: 11px;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .detail-share:hover{ background: var(--card-navy-hi); }
+  .back-link{
+    max-width: 1180px;
+    margin: 0 auto 18px;
+    display: block;
+    color: var(--indigo-900);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .back-link:hover{ color: var(--magenta); }
+  @media (max-width: 860px){
+    .detail-wrap{ grid-template-columns: 1fr; }
+    .detail-card{ position: static; }
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <nav class="nav">
+    <div class="nav-row">
+      <div class="logo">UNI<span>fest</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="events.html" class="active">EVENTS</a></li>
+        <li><a href="#clubs">CLUBS</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#login" class="btn btn-ghost">Login</a>
+        <a href="#signup" class="btn btn-solid">Sign up</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="shell">
+    <a href="events.html" class="back-link">&larr; Back to all events</a>
+  </div>
+
+  <div class="shell detail-wrap" id="detailRoot">
+    <!-- filled by script -->
+  </div>
+
+  <footer>
+    &copy; 2026 UNIfest — built by students, for students.
+  </footer>
+
+</div>
+
+<script>
+  const EVENTS = {
+    spectra: {
+      title: "Spectra — Annual Cultural Fest",
+      host: "Cultural Council",
+      tag: "Flagship fest",
+      date: "18", mon: "OCT",
+      gradient: "linear-gradient(135deg,#3a2a63,#8b3a86)",
+      when: "18–20 Oct · 6:00 PM onward",
+      venue: "Main Amphitheatre",
+      audience: "Open to all students",
+      fee: "Free entry",
+      seats: "Unlimited · wristband at gate",
+      desc: "Three nights of music, dance and drama to close out the semester. Expect battle-of-bands, a street-dance final, an open-air theatre showcase, and a headline concert on the last night. Food stalls and pop-up art installations run through the fest grounds all three days."
+    },
+    hacknight: {
+      title: "HackNight 2026",
+      host: "Dev Society",
+      tag: "Tech",
+      date: "24", mon: "OCT",
+      gradient: "linear-gradient(135deg,#1e2a52,#5b3aa8)",
+      when: "24 Oct, 9:00 PM – 25 Oct, 9:00 AM",
+      venue: "CS Block Labs",
+      audience: "Teams of 2–4, all years",
+      fee: "Free · laptop required",
+      seats: "80 seats · 34 left",
+      desc: "A 12-hour overnight build sprint. Pick a track — web, mobile, or AI tools — and ship something working by sunrise. Mentors drop by every two hours, and there's a demo round with judges from the CS faculty and two campus startups."
+    },
+    sprintcup: {
+      title: "Inter-Dept Sprint Cup",
+      host: "Sports Committee",
+      tag: "Sports",
+      date: "29", mon: "OCT",
+      gradient: "linear-gradient(135deg,#402060,#c23fb0)",
+      when: "29 Oct, 7:00 AM – 1:00 PM",
+      venue: "University Track & Field",
+      audience: "Department teams, 8 runners each",
+      fee: "Free for registered teams",
+      seats: "16 department slots · 6 left",
+      desc: "The annual track meet between departments — 100m, 400m, relay and long jump, followed by the department tug-of-war final. Trophy and bragging rights go to whichever department tops the combined scoreboard."
+    },
+    openmic: {
+      title: "Open Mic Night",
+      host: "Literary Club",
+      tag: "Culture",
+      date: "2", mon: "NOV",
+      gradient: "linear-gradient(135deg,#2a1e45,#ee5fb0)",
+      when: "2 Nov, 7:30 PM – 10:00 PM",
+      venue: "Courtyard Stage",
+      audience: "Performers & audience welcome",
+      fee: "Free entry",
+      seats: "Sign-up slots · 12 left",
+      desc: "A relaxed evening of poetry, acoustic sets and stand-up from your own classmates. Sign up for a 5-minute slot at the door, or just come sit on the lawn with a cup of chai and listen."
+    },
+    designsprint: {
+      title: "UI/UX Design Sprint",
+      host: "Design Guild",
+      tag: "Workshop",
+      date: "6", mon: "NOV",
+      gradient: "linear-gradient(135deg,#1e3350,#8b5cf6)",
+      when: "6 Nov, 10:00 AM – 4:00 PM",
+      venue: "Design Studio, Block C",
+      audience: "Beginner friendly · bring a laptop",
+      fee: "₹100 · includes lunch",
+      seats: "40 seats · 9 left",
+      desc: "A one-day, hands-on sprint through the design process — problem framing, rapid wireframes, and a working prototype by the end of the day. No prior design experience needed, just curiosity and a laptop with Figma installed."
+    },
+    foodtruck: {
+      title: "Food Truck Friday",
+      host: "Student Council",
+      tag: "Fest",
+      date: "12", mon: "NOV",
+      gradient: "linear-gradient(135deg,#3a2a63,#ff9650)",
+      when: "12 Nov, 5:00 PM – 10:00 PM",
+      venue: "North Lawn",
+      audience: "Open to all",
+      fee: "Free entry · pay per stall",
+      seats: "Walk-in",
+      desc: "A dozen local food trucks take over the North Lawn for one evening, with a live acoustic set and games on the side. Bring friends, bring cash (some stalls are card-only), and come hungry."
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const key = params.get('e') || 'spectra';
+  const ev = EVENTS[key] || EVENTS.spectra;
+
+  document.title = ev.title + " — UNIfest";
+
+  document.getElementById('detailRoot').innerHTML = `
+    <div class="detail-media" style="background:${ev.gradient}">
+      <div class="event-date"><span class="num">${ev.date}</span><span class="mon">${ev.mon}</span></div>
+      <span class="event-tag">${ev.tag}</span>
+    </div>
+    <div class="detail-body">
+      <h1>${ev.title}</h1>
+      <div class="detail-host">Hosted by ${ev.host}</div>
+      <div class="detail-facts">
+        <div class="detail-fact"><b>When</b> ${ev.when}</div>
+        <div class="detail-fact"><b>Venue</b> ${ev.venue}</div>
+        <div class="detail-fact"><b>Who</b> ${ev.audience}</div>
+      </div>
+      <p class="detail-desc">${ev.desc}</p>
+    </div>
+    <div class="detail-card">
+      <h3>Registration</h3>
+      <div class="price">${ev.fee}</div>
+      <div class="seats">${ev.seats}</div>
+      <button class="detail-register" onclick="alert('This is a demo — hook this up to your registration flow.')">Register now</button>
+      <button class="detail-share" onclick="alert('Link copied (demo).')">Share event</button>
+    </div>
+  `;
+</script>
+
+</body>
+</html>
